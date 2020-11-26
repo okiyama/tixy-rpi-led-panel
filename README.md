@@ -13,9 +13,14 @@ CLI that allows:
 * Save your own to a my_functions.json or similar  
 * Save to favorites  
 * Some way to leave and come back (screen?)  
+* Set colors (rainbow would be cool)  
 
-Fix i variable
+Fix centering (may be hard)
 
-Load up internet_examples
+~~Fix i variable~~
 
-Fix evaluation, should use with(Math)
+~~Load up internet_examples~~
+
+~~Fix evaluation, should use with(Math)~~
+
+~~Add npm start script~~
