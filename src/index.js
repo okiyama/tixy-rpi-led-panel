@@ -34,9 +34,9 @@ class Pulser {
             }
         }
         matrix.afterSync((mat, dt, t) => {
-            console.log(dt);
+//            console.log(dt);
             pulsers.map(pulser => {
-                pulser.calc(t/1000, index);
+                pulser.calc(t/500, index);
                 matrix
                     .fgColor(pulser.nextColor())
                     .brightness(pulser.brightness())

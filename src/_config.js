@@ -11,6 +11,6 @@ export const matrixOptions = Object.assign(Object.assign({}, LedMatrix.defaultMa
 });
 
 export const runtimeOptions = Object.assign(Object.assign({}, LedMatrix.defaultRuntimeOptions()), {
-    gpioSlowdown: 0
+    gpioSlowdown: 4
 });
 
