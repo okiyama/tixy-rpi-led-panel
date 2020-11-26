@@ -23,13 +23,11 @@ class Pulser {
         }
     }
     brightness() {
-        return Math.abs(this.value) * 100;
+        return (Math.abs(this.value) * 100) / 2;
     }
 }
 
 function setCallback(callbackText) {
-    console.log("setting callback with text: " + callbackText);
-    console.log("callback before: " + currentCallback);
     try {
         currentCallback = new Function('t', 'i', 'x', 'y', `
         try {
@@ -43,14 +41,13 @@ function setCallback(callbackText) {
     } catch (error) {
         currentCallback = null;
     }
-    console.log("callback after: " + currentCallback);
 }
 
 (async () => {
     try {
-        console.log(callbacks[0]);
-        const callbackName = callbacks[0]["name"];
-        const callbackText = callbacks[0]["callback"];
+        let callback = callbacks[Math.floor(Math.random() * callbacks.length)];
+        const callbackName = callback["name"];
+        const callbackText = callback["callback"];
         console.log("Now running \"" + callbackName + "\". Callback is: \"" + callbackText + "\"");
 
 		setCallback(callbackText);

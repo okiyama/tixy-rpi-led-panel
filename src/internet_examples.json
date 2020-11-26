@@ -76,10 +76,6 @@
     "callback":"(x-y)/24 - sin(t)"
   },
   {
-    "name":"disco",
-    "callback":"sin(t*5) * tan(t*7)"
-  },
-  {
     "name":"input is limited \nto 32 characters!",
     "callback":"(x-5)**2 + (y-5)**2 - 99*sin(t)"
   },
