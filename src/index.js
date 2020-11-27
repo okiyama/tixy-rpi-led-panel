@@ -6,6 +6,7 @@ import { default as callbacks } from "./internet_examples.json";
 
 let currentCallback = null;
 let brightnessPercent = 100;
+let secondsPerDisplay = 30;
 
 class Pulser {
     constructor(x, y, i) {
@@ -56,7 +57,8 @@ function setCallback(callbackIndex) {
 
 (async () => {
     try {
-		setCallback(1);
+        let currentCallbackIndex = 0;
+        setCallback(currentCallbackIndex);
 
         let i = 0;
         const matrix = new LedMatrix(matrixOptions, runtimeOptions);
@@ -95,10 +97,18 @@ function setCallback(callbackIndex) {
                     .brightness(pulser.brightness())
                     .setPixel(pulser.x, pulser.y);
             });
+
+            let newCallbackIndex = Math.floor(t / (1000 * secondsPerDisplay)) % (callbacks.length - 1);
+            if(newCallbackIndex != currentCallbackIndex) {
+                currentCallbackIndex = newCallbackIndex;
+                setCallback(currentCallbackIndex);
+            }
+
             setTimeout(() => matrix.sync(), 0);
         });
         matrix.sync();
 
+        /*
         while(true) {
             const questions = [
                 {
@@ -107,19 +117,19 @@ function setCallback(callbackIndex) {
                     message: 'Which callback should I play?',
                     validate: value => value < 0 || value >= callbacks.length ? `Must be between 0 and ${callbacks.length - 1}` : true
                 },
-                /*
                 {
                     type: 'number',
                     name: 'brightnessModifier',
                     message: 'What should the brightness percentage be?',
                     validate: value => value < 0 || value > 100 ? `Must be between 0 and 100` : true
-                }*/
+                }
             ];
 
             const response = await prompts(questions);
             setCallback(response.callbackIndex);
             //brightnessPercent = response.brightnessModifier;
         }
+        */
 	 
 
     }
