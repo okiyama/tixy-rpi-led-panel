@@ -5,8 +5,8 @@ import { default as prompts } from 'prompts';
 import { default as callbacks } from "./internet_examples.json";
 
 let currentCallback = null;
-let brightnessPercent = 100;
-let secondsPerDisplay = 30;
+let brightnessPercent = 50;
+let secondsPerDisplay = 10;
 
 class Pulser {
     constructor(x, y, i) {
@@ -17,7 +17,7 @@ class Pulser {
         this.normalizedValue = null;
     }
     calc(t) {
-        this.value = Number(currentCallback(t, this.i, this.x, this.y));
+        this.value = Number(currentCallback(t, this.i, this.x - 8, this.y - 8));
     }
     calcNormalized(minValue, maxValue) {
         this.normalizedValue = (2 * ((this.value - minValue) / (maxValue - minValue))) - 1;
@@ -72,7 +72,7 @@ function setCallback(callbackIndex) {
         matrix.afterSync((mat, dt, t) => {
 //            console.log(dt);
             pulsers.map(pulser => {
-                pulser.calc(t/500);
+                pulser.calc(t/1000);
             });
 
             let minValue = Number.POSITIVE_INFINITY;

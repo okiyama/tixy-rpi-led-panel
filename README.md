@@ -16,7 +16,7 @@ CLI that allows:
 * Set colors (rainbow would be cool)   
 * Set speed / brightness per example  
 
-Fix centering (may be hard)
+Fix centering (may be hard) (or do it for individual examples)
 
 ~~Fix i variable~~
 
@@ -26,4 +26,4 @@ Fix centering (may be hard)
 
 ~~Add npm start script~~
 
-Normalize values to -1 -> +1
+~~Normalize values to -1 -> +1~~
