@@ -1,9 +1,11 @@
 import { LedMatrix } from 'rpi-led-matrix';
 import { matrixOptions, runtimeOptions } from './_config.js';
+import { default as prompts } from 'prompts';
 
 import { default as callbacks } from "./internet_examples.json";
 
 let currentCallback = null;
+let brightnessPercent = 100;
 
 class Pulser {
     constructor(x, y, i) {
@@ -23,11 +25,16 @@ class Pulser {
         }
     }
     brightness() {
-        return (Math.abs(this.value) * 100) / 2;
+        return (Math.abs(this.value) * brightnessPercent);
     }
 }
 
-function setCallback(callbackText) {
+function setCallback(callbackIndex) {
+    let callback = callbacks[callbackIndex];
+    const callbackName = callback["name"];
+    const callbackText = callback["callback"];
+    console.log("Now running \"" + callbackName + "\". Callback is: \"" + callbackText + "\"");
+
     try {
         currentCallback = new Function('t', 'i', 'x', 'y', `
         try {
@@ -45,12 +52,7 @@ function setCallback(callbackText) {
 
 (async () => {
     try {
-        let callback = callbacks[Math.floor(Math.random() * callbacks.length)];
-        const callbackName = callback["name"];
-        const callbackText = callback["callback"];
-        console.log("Now running \"" + callbackName + "\". Callback is: \"" + callbackText + "\"");
-
-		setCallback(callbackText);
+		setCallback(1);
 
         let i = 0;
         const matrix = new LedMatrix(matrixOptions, runtimeOptions);
@@ -73,6 +75,30 @@ function setCallback(callbackText) {
             setTimeout(() => matrix.sync(), 0);
         });
         matrix.sync();
+
+        while(true) {
+            const questions = [
+                {
+                    type: 'number',
+                    name: 'callbackIndex',
+                    message: 'Which callback should I play?',
+                    validate: value => value < 0 || value >= callbacks.length ? `Must be between 0 and ${callbacks.length - 1}` : true
+                },
+                /*
+                {
+                    type: 'number',
+                    name: 'brightnessModifier',
+                    message: 'What should the brightness percentage be?',
+                    validate: value => value < 0 || value > 100 ? `Must be between 0 and 100` : true
+                }*/
+            ];
+
+            const response = await prompts(questions);
+            setCallback(response.callbackIndex);
+            //brightnessPercent = response.brightnessModifier;
+        }
+	 
+
     }
     catch (error) {
         console.error(error);

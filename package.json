@@ -15,10 +15,9 @@
   "license": "MIT",
   "dependencies": {
     "paralleljs": "^1.1.0",
+    "prompts": "^2.4.0",
     "rpi-led-matrix": "^1.11.1"
   },
   "devDependencies": {},
   "type": "module"
 }
-
-
