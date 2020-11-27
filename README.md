@@ -13,7 +13,8 @@ CLI that allows:
 * Save your own to a my_functions.json or similar  
 * Save to favorites  
 * Some way to leave and come back (screen?)  
-* Set colors (rainbow would be cool)  
+* Set colors (rainbow would be cool)   
+* Set speed / brightness per example  
 
 Fix centering (may be hard)
 
@@ -24,3 +25,5 @@ Fix centering (may be hard)
 ~~Fix evaluation, should use with(Math)~~
 
 ~~Add npm start script~~
+
+Normalize values to -1 -> +1

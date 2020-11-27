@@ -13,9 +13,13 @@ class Pulser {
         this.y = y;
         this.i = i;
         this.value = null;
+        this.normalizedValue = null;
     }
     calc(t) {
         this.value = Number(currentCallback(t, this.i, this.x, this.y));
+    }
+    calcNormalized(minValue, maxValue) {
+        this.normalizedValue = (2 * ((this.value - minValue) / (maxValue - minValue))) - 1;
     }
     color() {
         if(this.value < 0) {
@@ -67,6 +71,25 @@ function setCallback(callbackIndex) {
 //            console.log(dt);
             pulsers.map(pulser => {
                 pulser.calc(t/500);
+            });
+
+            let minValue = Number.POSITIVE_INFINITY;
+            let maxValue = Number.NEGATIVE_INFINITY;
+
+            pulsers.map(pulser => {
+                if(pulser.value < minValue) {
+                    minValue = pulser.value;
+                }
+                if(pulser.value > maxValue) {
+                    maxValue = pulser.value;
+                }
+            });
+
+            pulsers.map(pulser => {
+                pulser.calcNormalized(minValue, maxValue);
+            });
+
+            pulsers.map(pulser => {
                 matrix
                     .fgColor(pulser.color())
                     .brightness(pulser.brightness())
