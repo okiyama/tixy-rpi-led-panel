@@ -362,5 +362,9 @@
   {
     "name":"kevinwang anotha",
     "callback":"b=1.1**i,t+=b,b%2+2*sin(t/9)**99"
+  },
+  {
+    "name":"Julian Jocque first blinky thingie",
+    "callback":"sin(x)^(sin(i*t/y/500)+cos(y+x*x*x*x*y*i+i+t)*10*i*t*x*y/4000000000)"
   }
 ]
