@@ -63,9 +63,9 @@ CLI that allows:
 
 * ~~Go to next~~  
 * ~~Go to random~~  
-* Adjust brightness  
-* Set skip interval  
-* Set speed  
+* ~~Adjust brightness~~  
+* ~~Set skip interval~~  
+* ~~Set speed~~  
 * ~~Input your own~~  
 * ~~Save your own to a my_functions.json or similar~~  
 * Save to favorites  
