@@ -1,370 +1,374 @@
 [
   {
-    "name":"skip `Math.` to use methods \nand props like `sin` or `PI`",
-    "callback":"sin(t-sqrt((x-7.5)**2+(y-6)**2))"
+    "name": "wow my cool function",
+    "callback": "sqrt(sin(t)*cos(x)/tan(i))*t/40*sin(x)*y*y*t*i/400000000"
   },
   {
-    "name":"more examples ...",
-    "callback":"sin(y/8 + t)"
+    "name": "Julian Jocque first blinky thingie",
+    "callback": "sin(x)^(sin(i*t/y/500)+cos(y+x*x*x*x*y*i+i+t)*10*i*t*x*y/4000000000)"
   },
   {
-    "name":"sierpinski",
-    "callback":"4 * t & i & x & y"
+    "name": "skip `Math.` to use methods \nand props like `sin` or `PI`",
+    "callback": "sin(t-sqrt((x-7.5)**2+(y-6)**2))"
   },
   {
-    "name":"random noise",
-    "callback":"random() * 2 - 1"
+    "name": "more examples ...",
+    "callback": "sin(y/8 + t)"
   },
   {
-    "name":"animated smooth noise",
-    "callback":"cos(t + i + x * y)"
+    "name": "sierpinski",
+    "callback": "4 * t & i & x & y"
   },
   {
-    "name":"waves",
-    "callback":"sin(x/2) - sin(x-t) - y+6"
+    "name": "random noise",
+    "callback": "random() * 2 - 1"
   },
   {
-    "name":"bloop bloop bloop\nby @v21",
-    "callback":"(x-8)*(y-8) - sin(t)*64"
+    "name": "animated smooth noise",
+    "callback": "cos(t + i + x * y)"
   },
   {
-    "name":"fireworks\nby @p_malin and @aemkei",
-    "callback":"-.4/(hypot(x-t%10,y-t%8)-t%2*9)"
+    "name": "waves",
+    "callback": "sin(x/2) - sin(x-t) - y+6"
   },
   {
-    "name":"ripples\nby @thespite",
-    "callback":"Math.sin(t-Math.sqrt(x*x+y*y))"
+    "name": "bloop bloop bloop\nby @v21",
+    "callback": "(x-8)*(y-8) - sin(t)*64"
   },
   {
-    "name":"3d checker board\nby @p_malin",
-    "callback":"(((x-8)/y+t*5)&1^1/y*8&1)*y/5"
+    "name": "fireworks\nby @p_malin and @aemkei",
+    "callback": "-.4/(hypot(x-t%10,y-t%8)-t%2*9)"
   },
   {
-    "name":"sticky blood\nby @joeytwiddle",
-    "callback":"y-t*3+9+3*cos(x*3-t)-5*sin(x*7)"
+    "name": "ripples\nby @thespite",
+    "callback": "Math.sin(t-Math.sqrt(x*x+y*y))"
   },
   {
-    "name":"3d starfield\nby @p_malin",
-    "callback":"d=y*y%5.9+1,!((x+t*50/d)&15)/d"
+    "name": "3d checker board\nby @p_malin",
+    "callback": "(((x-8)/y+t*5)&1^1/y*8&1)*y/5"
   },
   {
-    "name":"dialogue with an alien\nby @chiptune",
-    "callback":"1/32*tan(t/64*x*tan(i-x))"
+    "name": "sticky blood\nby @joeytwiddle",
+    "callback": "y-t*3+9+3*cos(x*3-t)-5*sin(x*7)"
   },
   {
-    "name":"hungry pac man\nby @p_malin and @aemkei",
-    "callback":"hypot(x-=t%4*5,y-=8)<6&&x<y|y<-x"
+    "name": "3d starfield\nby @p_malin",
+    "callback": "d=y*y%5.9+1,!((x+t*50/d)&15)/d"
   },
   {
-    "name":"spectrum analyser\nby @joeytwiddle",
-    "callback":"x&y<9&y>4+sin(8*t+x*x)+x/4"
+    "name": "dialogue with an alien\nby @chiptune",
+    "callback": "1/32*tan(t/64*x*tan(i-x))"
   },
   {
-    "name":"drop",
-    "callback":"8*t%13 - hypot(x-7.5, y-7.5)"
+    "name": "hungry pac man\nby @p_malin and @aemkei",
+    "callback": "hypot(x-=t%4*5,y-=8)<6&&x<y|y<-x"
   },
   {
-    "name":"rotation",
-    "callback":"sin(2*atan((y-7.5)/(x-7.5))+5*t)"
+    "name": "spectrum analyser\nby @joeytwiddle",
+    "callback": "x&y<9&y>4+sin(8*t+x*x)+x/4"
   },
   {
-    "name":"wipe",
-    "callback":"(x-y) - sin(t) * 16"
+    "name": "drop",
+    "callback": "8*t%13 - hypot(x-7.5, y-7.5)"
   },
   {
-    "name":"soft wipe",
-    "callback":"(x-y)/24 - sin(t)"
+    "name": "rotation",
+    "callback": "sin(2*atan((y-7.5)/(x-7.5))+5*t)"
   },
   {
-    "name":"input is limited \nto 32 characters!",
-    "callback":"(x-5)**2 + (y-5)**2 - 99*sin(t)"
+    "name": "wipe",
+    "callback": "(x-y) - sin(t) * 16"
   },
   {
-    "name":"Dospunk 1",
-    "callback":"Math.sin(i%(100/t))"
+    "name": "soft wipe",
+    "callback": "(x-y)/24 - sin(t)"
   },
   {
-    "name":"Dospunk 2",
-    "callback":"Math.sin(Math.sin(x%t)*t)"
+    "name": "input is limited \nto 32 characters!",
+    "callback": "(x-5)**2 + (y-5)**2 - 99*sin(t)"
   },
   {
-    "name":"Dospunk 3",
-    "callback":"Math.sin(t*(i/128))"
+    "name": "Dospunk 1",
+    "callback": "Math.sin(i%(100/t))"
   },
   {
-    "name":"Dospunk 4",
-    "callback":"(i/x)==Math.floor(t)"
+    "name": "Dospunk 2",
+    "callback": "Math.sin(Math.sin(x%t)*t)"
   },
   {
-    "name":"Agumander XOR fun",
-    "callback":"10*Math.sin(t)-(x^y)+7"
+    "name": "Dospunk 3",
+    "callback": "Math.sin(t*(i/128))"
   },
   {
-    "name":"preskot meteor shower",
-    "callback":"(i+20*t^2048)%15==0?.3*(y/x):-.1"
+    "name": "Dospunk 4",
+    "callback": "(i/x)==Math.floor(t)"
   },
   {
-    "name":"AnxiousIntender randomness",
-    "callback":"a=x*y*i+t/PI|0,sin(a*a)+sin(t)|0"
+    "name": "Agumander XOR fun",
+    "callback": "10*Math.sin(t)-(x^y)+7"
   },
   {
-    "name":"j1mmie thing 1",
-    "callback":"(x-8)*(y-8)*sin(t*4)/16"
+    "name": "preskot meteor shower",
+    "callback": "(i+20*t^2048)%15==0?.3*(y/x):-.1"
   },
   {
-    "name":"j1mmie thing 2",
-    "callback":"sin(sin(t*2)*i/150*x)"
+    "name": "AnxiousIntender randomness",
+    "callback": "a=x*y*i+t/PI|0,sin(a*a)+sin(t)|0"
   },
   {
-    "name":"electric_nate wildness",
-    "callback":"Math.tan(i%t^2)"
+    "name": "j1mmie thing 1",
+    "callback": "(x-8)*(y-8)*sin(t*4)/16"
   },
   {
-    "name":"Plazmatic moving circle",
-    "callback":"(x-8)**2+(y-8+8*sin(t))**2<17"
+    "name": "j1mmie thing 2",
+    "callback": "sin(sin(t*2)*i/150*x)"
   },
   {
-    "name":"razzraziel simulated universe",
-    "callback":"tan(((-i/128)-((x/y)))*t)"
+    "name": "electric_nate wildness",
+    "callback": "Math.tan(i%t^2)"
   },
   {
-    "name":"dlorddd loves it already",
-    "callback":"pow(cos(t),x)*y"
+    "name": "Plazmatic moving circle",
+    "callback": "(x-8)**2+(y-8+8*sin(t))**2<17"
   },
   {
-    "name":"dlorddd waves within waves",
-    "callback":"sin(y+(t+sin(x+sin(t*PI))))"
+    "name": "razzraziel simulated universe",
+    "callback": "tan(((-i/128)-((x/y)))*t)"
   },
   {
-    "name":"8bitbananaEC pretty neat",
-    "callback":"[1,.5,0,-.5,-1][round(t*10+i)%5]"
+    "name": "dlorddd loves it already",
+    "callback": "pow(cos(t),x)*y"
   },
   {
-    "name":"mechanique simple yet cool",
-    "callback":"Math.sin(t)*x+Math.cos(t)*y"
+    "name": "dlorddd waves within waves",
+    "callback": "sin(y+(t+sin(x+sin(t*PI))))"
   },
   {
-    "name":"lurkerurke see everything",
-    "callback":"sin((x-7.5)*(y-7.5)/5*t+t)"
+    "name": "8bitbananaEC pretty neat",
+    "callback": "[1,.5,0,-.5,-1][round(t*10+i)%5]"
   },
   {
-    "name":"SN0WFAKER spinner",
-    "callback":"sin(atan((y-7.5)/(x-7.5))+t*6)"
+    "name": "mechanique simple yet cool",
+    "callback": "Math.sin(t)*x+Math.cos(t)*y"
   },
   {
-    "name":"mastermindxs simple but complex",
-    "callback":"Math.tan(t/y*x)"
+    "name": "lurkerurke see everything",
+    "callback": "sin((x-7.5)*(y-7.5)/5*t+t)"
   },
   {
-    "name":"LeadingNegotiation9 the power of XOR",
-    "callback":"cos(((x-8)^(y-8))*t)"
+    "name": "SN0WFAKER spinner",
+    "callback": "sin(atan((y-7.5)/(x-7.5))+t*6)"
   },
   {
-    "name":"LeadingNegotiation9 countdown",
-    "callback":"tan(t/x*(y>=x))+tan(t/y*(x>=y))"
+    "name": "mastermindxs simple but complex",
+    "callback": "Math.tan(t/y*x)"
   },
   {
-    "name":"LeadingNegotiation9 alien contact",
-    "callback":"cos((y^x)+t)**cos((x>y)+t)"
+    "name": "LeadingNegotiation9 the power of XOR",
+    "callback": "cos(((x-8)^(y-8))*t)"
   },
   {
-    "name":"LeadingNegotiation9 too many hours",
-    "callback":"cos((8&(x^y)))*tan(t)+cos(t/x*y)"
+    "name": "LeadingNegotiation9 countdown",
+    "callback": "tan(t/x*(y>=x))+tan(t/y*(x>=y))"
   },
   {
-    "name":"ybham6 julia set",
-    "callback":"(()=>{let re=-2+x*.25;let im=-1.5+y*3.0/16;let th=2*PI*t/10;let j=0,a=cos(t),b=0;for(j;j<10;j+=1){let mag=a*a+b*b;if(mag>4){break}let a_new=a*a-b*b+re;b=2*a*b+im;a=a_new}return j/10 * 2 -1})()"
+    "name": "LeadingNegotiation9 alien contact",
+    "callback": "cos((y^x)+t)**cos((x>y)+t)"
   },
   {
-    "name":"FireYoshiQc spinner",
-    "callback":"asin((x-7.5)+(y-7.5)*tan(t))"
+    "name": "LeadingNegotiation9 too many hours",
+    "callback": "cos((8&(x^y)))*tan(t)+cos(t/x*y)"
   },
   {
-    "name":"detunized slow waves",
-    "callback":"Math.sin(y/8+t)+x/16-0.5"
+    "name": "ybham6 julia set",
+    "callback": "(()=>{let re=-2+x*.25;let im=-1.5+y*3.0/16;let th=2*PI*t/10;let j=0,a=cos(t),b=0;for(j;j<10;j+=1){let mag=a*a+b*b;if(mag>4){break}let a_new=a*a-b*b+re;b=2*a*b+im;a=a_new}return j/10 * 2 -1})()"
   },
   {
-    "name":"RagnorokX mesmerizing little pattern thing",
-    "callback":"sin((y+5)*(x+5)*(t/20))"
+    "name": "FireYoshiQc spinner",
+    "callback": "asin((x-7.5)+(y-7.5)*tan(t))"
   },
   {
-    "name":"Luapix 3D",
-    "callback":"d=abs(cos(1.5*t))*5,max(0,min(d*(1+(y-8)/30)-abs(x-8)+1,6-abs(y-8)+sin(3*t)*(x-7.5)/d))"
+    "name": "detunized slow waves",
+    "callback": "Math.sin(y/8+t)+x/16-0.5"
   },
   {
-    "name":"Rezmason matrix",
-    "callback":"(1-((t+x+sin(t+x)/2)-y/30)%1)/3"
+    "name": "RagnorokX mesmerizing little pattern thing",
+    "callback": "sin((y+5)*(x+5)*(t/20))"
   },
   {
-    "name":"greenpepperpasta bitwise play around",
-    "callback":"tan((x^y)|(10*t))"
+    "name": "Luapix 3D",
+    "callback": "d=abs(cos(1.5*t))*5,max(0,min(d*(1+(y-8)/30)-abs(x-8)+1,6-abs(y-8)+sin(3*t)*(x-7.5)/d))"
   },
   {
-    "name":"lurkerurke solar wind",
-    "callback":"1/(sin(x*x/99+(y-7.5)*t)*6)"
+    "name": "Rezmason matrix",
+    "callback": "(1-((t+x+sin(t+x)/2)-y/30)%1)/3"
   },
   {
-    "name":"Anders_A blob",
-    "callback":"1-hypot(sin(t)*9-x,cos(t)*9-y)/9"
+    "name": "greenpepperpasta bitwise play around",
+    "callback": "tan((x^y)|(10*t))"
   },
   {
-    "name":"filiona2 fun",
-    "callback":"Math.sin(t*x)*Math.cos(i*y)"
+    "name": "lurkerurke solar wind",
+    "callback": "1/(sin(x*x/99+(y-7.5)*t)*6)"
   },
   {
-    "name":"denemdenem really simple",
-    "callback":"sin(i+t*x)"
+    "name": "Anders_A blob",
+    "callback": "1-hypot(sin(t)*9-x,cos(t)*9-y)/9"
   },
   {
-    "name":"bandwidthcrisis sharp waves",
-    "callback":"sin(.3*y+t+4*sin(.2*x-.3*y-t))"
+    "name": "filiona2 fun",
+    "callback": "Math.sin(t*x)*Math.cos(i*y)"
   },
   {
-    "name":"onyxleopard interesting waves",
-    "callback":"(sin(t/i*x)*cos(t/i*(y+1)))/PI"
+    "name": "denemdenem really simple",
+    "callback": "sin(i+t*x)"
   },
   {
-    "name":"zoells band and forth",
-    "callback":"3*sin(t)/x-3*cos(t)/(15-x)"
+    "name": "bandwidthcrisis sharp waves",
+    "callback": "sin(.3*y+t+4*sin(.2*x-.3*y-t))"
   },
   {
-    "name":"Earhacker waves in waves",
-    "callback":"cos((x-7.5)*(y-7.5)*(t/12))"
+    "name": "onyxleopard interesting waves",
+    "callback": "(sin(t/i*x)*cos(t/i*(y+1)))/PI"
   },
   {
-    "name":"teaearlgraycold quick circle",
-    "callback":"2-hypot(x-7,9*sin(6*t)-y)*cos(t)"
+    "name": "zoells band and forth",
+    "callback": "3*sin(t)/x-3*cos(t)/(15-x)"
   },
   {
-    "name":"mastermindxs tans",
-    "callback":"tan(t/y*x)"
+    "name": "Earhacker waves in waves",
+    "callback": "cos((x-7.5)*(y-7.5)*(t/12))"
   },
   {
-    "name":"YeeOfficer triangle matric",
-    "callback":"i%(t+4)-(x%5+y%2)-abs(tan(t))"
+    "name": "teaearlgraycold quick circle",
+    "callback": "2-hypot(x-7,9*sin(6*t)-y)*cos(t)"
   },
   {
-    "name":"jeremy1015 lines that flee",
-    "callback":"sin((x + y) / (1/t))"
+    "name": "mastermindxs tans",
+    "callback": "tan(t/y*x)"
   },
   {
-    "name":"jeremy1015 pendulum",
-    "callback":"(x - (sin(t)) * (y-sin(t)))"
+    "name": "YeeOfficer triangle matric",
+    "callback": "i%(t+4)-(x%5+y%2)-abs(tan(t))"
   },
   {
-    "name":"sargeanthost blinky lights",
-    "callback":"(tan(t+x)*sin(y))/i"
+    "name": "jeremy1015 lines that flee",
+    "callback": "sin((x + y) / (1/t))"
   },
   {
-    "name":"WeAreAllApes so easy to waste time",
-    "callback":"(x&y)%sin(t/8)-(x^y)%cos(t/2)"
+    "name": "jeremy1015 pendulum",
+    "callback": "(x - (sin(t)) * (y-sin(t)))"
   },
   {
-    "name":"FTWinston Sunbeams",
-    "callback":"sin(x/y-y/x+t)"
+    "name": "sargeanthost blinky lights",
+    "callback": "(tan(t+x)*sin(y))/i"
   },
   {
-    "name":"RobIII Blood dripping down a wall",
-    "callback":"-(t * sin(x)-y)"
+    "name": "WeAreAllApes so easy to waste time",
+    "callback": "(x&y)%sin(t/8)-(x^y)%cos(t/2)"
   },
   {
-    "name":"s-a-a-d-b-o-o-y-s could play for hours",
-    "callback":"t=tan(sin(t-x*y))"
+    "name": "FTWinston Sunbeams",
+    "callback": "sin(x/y-y/x+t)"
   },
   {
-    "name":"Lampshader flame(ish)",
-    "callback":"sin(-t-sqrt((6*y)-(x-7.5)**2))"
+    "name": "RobIII Blood dripping down a wall",
+    "callback": "-(t * sin(x)-y)"
   },
   {
-    "name":"deadlyicon best I could come up with",
-    "callback":"i%t-2"
+    "name": "s-a-a-d-b-o-o-y-s could play for hours",
+    "callback": "t=tan(sin(t-x*y))"
   },
   {
-    "name":"deadlyicon lasers!",
-    "callback":"(i%(t-(x+y)))-2"
+    "name": "Lampshader flame(ish)",
+    "callback": "sin(-t-sqrt((6*y)-(x-7.5)**2))"
   },
   {
-    "name":"deadlyicon spokes",
-    "callback":"(i%(t*y))-2"
+    "name": "deadlyicon best I could come up with",
+    "callback": "i%t-2"
   },
   {
-    "name":"_Microft haxx0rz",
-    "callback":"(i+y)%16/16+Math.sin(x*t)-Math.cos(y*t)+(2*t)%3(i+y)%16/16+Math.sin(x*t)-Math.cos(y*t)+(2*t)%3"
+    "name": "deadlyicon lasers!",
+    "callback": "(i%(t-(x+y)))-2"
   },
   {
-    "name":"scoopr slow cirlce",
-    "callback":"x-=t%24,y-=t%24,(x*x+y*y)/5-2"
+    "name": "deadlyicon spokes",
+    "callback": "(i%(t*y))-2"
   },
   {
-    "name":"oliwary animated sinus function",
-    "callback":"y==~~(8-7*Math.sin(t*5+x/3))"
+    "name": "_Microft haxx0rz",
+    "callback": "(i+y)%16/16+Math.sin(x*t)-Math.cos(y*t)+(2*t)%3(i+y)%16/16+Math.sin(x*t)-Math.cos(y*t)+(2*t)%3"
   },
   {
-    "name":"ChrisGranger 1",
-    "callback":"Math.cos(x/t)-Math.cos(y/t)"
+    "name": "scoopr slow cirlce",
+    "callback": "x-=t%24,y-=t%24,(x*x+y*y)/5-2"
   },
   {
-    "name":"ChrisGranger 2",
-    "callback":"Math.cos((x/t)/y-t)"
+    "name": "oliwary animated sinus function",
+    "callback": "y==~~(8-7*Math.sin(t*5+x/3))"
   },
   {
-    "name":"jfim smooth circles",
-    "callback":"Math.sin(y+t*2)-Math.cos(x-t*2)"
+    "name": "ChrisGranger 1",
+    "callback": "Math.cos(x/t)-Math.cos(y/t)"
   },
   {
-    "name":"jfim pendulum",
-    "callback":"Math.log(Math.sin(t)*5+x/y)"
+    "name": "ChrisGranger 2",
+    "callback": "Math.cos((x/t)/y-t)"
   },
   {
-    "name":"nickcw breathing sierpinski",
-    "callback":"i&x&(y*Math.sin(t))"
+    "name": "jfim smooth circles",
+    "callback": "Math.sin(y+t*2)-Math.cos(x-t*2)"
   },
   {
-    "name":"0-_-0 circles",
-    "callback":"Math.sin(3*t-(x/6)**2-(y/6)**2)"
+    "name": "jfim pendulum",
+    "callback": "Math.log(Math.sin(t)*5+x/y)"
   },
   {
-    "name":"0-_-0 smooth lines",
-    "callback":"Math.sin(0.2*i%7+t)"
+    "name": "nickcw breathing sierpinski",
+    "callback": "i&x&(y*Math.sin(t))"
   },
   {
-    "name":"flobosg no trig 1",
-    "callback":"1-t%2+(x-8)*(y-8)%~(t%2/.2)*.2"
+    "name": "0-_-0 circles",
+    "callback": "Math.sin(3*t-(x/6)**2-(y/6)**2)"
   },
   {
-    "name":"flobosg no trig 2",
-    "callback":"1-t%2-((x-9)^(y-9))%~(t%4/.1)*.1"
+    "name": "0-_-0 smooth lines",
+    "callback": "Math.sin(0.2*i%7+t)"
   },
   {
-    "name":"neurotic_comp 1",
-    "callback":"Math.tan(t)**x/Math.cos(t)**y"
+    "name": "flobosg no trig 1",
+    "callback": "1-t%2+(x-8)*(y-8)%~(t%2/.2)*.2"
   },
   {
-    "name":"neurotic_comp 2",
-    "callback":"Math.sin(i+t)*Math.cos(t/2)"
+    "name": "flobosg no trig 2",
+    "callback": "1-t%2-((x-9)^(y-9))%~(t%4/.1)*.1"
   },
   {
-    "name":"jvanegmond 1",
-    "callback":"Math.sin(t*y*(i/256))"
+    "name": "neurotic_comp 1",
+    "callback": "Math.tan(t)**x/Math.cos(t)**y"
   },
   {
-    "name":"jvanegmond 2",
-    "callback":"Math.sin(t*x*(i/256))"
+    "name": "neurotic_comp 2",
+    "callback": "Math.sin(i+t)*Math.cos(t/2)"
   },
   {
-    "name":"idontevengohere loves it",
-    "callback":"Math.tan(t*(100-y*x)/9)"
+    "name": "jvanegmond 1",
+    "callback": "Math.sin(t*y*(i/256))"
   },
   {
-    "name":"kevingwang dick",
-    "callback":"y-=6+sin(t)*x**2/99,(y/2)**2-1"
+    "name": "jvanegmond 2",
+    "callback": "Math.sin(t*x*(i/256))"
   },
   {
-    "name":"kevinwang anotha",
-    "callback":"b=1.1**i,t+=b,b%2+2*sin(t/9)**99"
+    "name": "idontevengohere loves it",
+    "callback": "Math.tan(t*(100-y*x)/9)"
   },
   {
-    "name":"Julian Jocque first blinky thingie",
-    "callback":"sin(x)^(sin(i*t/y/500)+cos(y+x*x*x*x*y*i+i+t)*10*i*t*x*y/4000000000)"
+    "name": "kevingwang dick",
+    "callback": "y-=6+sin(t)*x**2/99,(y/2)**2-1"
+  },
+  {
+    "name": "kevinwang anotha",
+    "callback": "b=1.1**i,t+=b,b%2+2*sin(t/9)**99"
   }
 ]

@@ -1,6 +1,6 @@
 # tixy-rpi-led-panel
 
-Running the excellent tixy.land on an LED panel off a Raspberry Pi
+Running the excellent tixy.land on an LED panel off a Raspberry Pi. Huge credit to Alex Eden for the wonderful rpi-led-matrix library that made this whole project a delight and a breeze to work on.
 
 
 # Installation  
@@ -30,23 +30,30 @@ then npm install in the directory
 Disable raspberry pi audio with sudo vim /boot/config.txt and add dtparam=audio=off to the bottom then reboot
 
 
+## Configuration
+
+Modify src/_config.js to suit your needs. See https://github.com/alexeden/rpi-led-matrix#configuration for information on that config.
+
+
 ## Running 
+
+All of these use sudo to run as root :D
 
 ### Running in current terminal
 
-sudo npm start
+npm start
 
 ### Running in tmux background session
 
-sudo npm run start-background
+npm run start-background
 
 ### Connecting to tmux background session
 
-sudo npm run attach-background
+npm run attach-background
 
 ### Killing tmux background session
 
-sudo npm run kill-background
+npm run kill-background
 
 
 
@@ -60,7 +67,7 @@ CLI that allows:
 * Set skip interval  
 * Set speed  
 * ~~Input your own~~  
-* Save your own to a my_functions.json or similar  
+* ~~Save your own to a my_functions.json or similar~~  
 * Save to favorites  
 * Set colors (rainbow would be cool)   
 * Set speed / brightness per example  
@@ -77,3 +84,5 @@ CLI that allows:
 ~~Add npm start script~~
 
 ~~Normalize values to -1 -> +1~~
+
+Fix cursor when creating own function

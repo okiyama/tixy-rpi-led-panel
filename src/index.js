@@ -1,16 +1,21 @@
 import { LedMatrix } from 'rpi-led-matrix';
 import { matrixOptions, runtimeOptions } from './_config.js';
 import { default as prompts } from 'prompts';
-import { default as callbacks } from "./functions.json";
+import { default as fs } from 'fs';
 
+let callbacks = null;
+let favorites = null;
 let currentCallback = null;
+let currentCallbackText = "";
 let currentCallbackIndex = 0;
-let brightnessPercent = 50;
+let brightnessFix = false;
+let brightnessPercent = 100;
 let secondsPerDisplay = 10;
 let autoplay = true;
-let brightnessFix = false;
 let matrix = null;
 let centerFunctions = true;
+let speedMultiplier = 1;
+let functionsPath = './src/functions.json';
 
 class Pulser {
     constructor(x, y, i) {
@@ -51,7 +56,6 @@ function setCallback(callbackIndex) {
     let callback = callbacks[callbackIndex];
     const callbackName = callback["name"];
     const callbackText = callback["callback"];
-    //console.log("Now running \"" + callbackName + "\". Callback is: \"" + callbackText + "\"");
 
     setCustomCallback(callbackText, callbackIndex);
 }
@@ -59,6 +63,7 @@ function setCallback(callbackIndex) {
 function setCustomCallback(callbackText, callbackIndex) {
     try {
         currentCallbackIndex = callbackIndex || 0;
+        currentCallbackText = callbackText;
         currentCallback = new Function('t', 'i', 'x', 'y', `
         try {
             with (Math) {
@@ -101,8 +106,56 @@ async function promptChooseFunction() {
     setCustomCallback(response.functionChosen);
 }
 
+function loadCallbacks() {
+    let rawdata = fs.readFileSync(functionsPath);
+    return JSON.parse(rawdata);
+}
+
+async function saveCurrentFunction() {
+    let response = await prompts.prompt({
+        type: 'text',
+        name: 'functionName',
+        message: 'What would you like to name your function?',
+        validate: value => {
+            if(!value || value === "") {
+                return "Must provide a name";
+            } else if(callbacks.some(c => c.name === value)) {
+                return "Name must be unique";
+            }
+
+            return true;
+        }
+    });
+
+    callbacks.unshift({"name": response.functionName, "callback": currentCallbackText});
+    fs.writeFile(functionsPath, JSON.stringify(callbacks, null, 2), (err, data) => { if(err) {console.log('error', err);}});
+}
+
+async function promptAdjustBrightness() {
+    const brightnessPrompts = [{
+        type: 'toggle',
+        name: 'brightnessFix',
+        message: 'Apply brightness fix? This will ensure that brightness works correctly for all functions, but will affect how any functions that use values outside of -1 to +1 display.',
+        initial: true,
+        active: 'yes',
+        inactive: 'no' 
+    },
+    {
+        type: 'number',
+        name: 'brightness',
+        message: 'What brightness percent?',
+        validate: value => value >= 0 && value <= 100 || "Value must be between 0 and 100 percent."
+    }];
+
+    let responses = await prompts.prompt(brightnessPrompts);
+    brightnessFix = responses.brightnessFix;
+    brightnessPercent = responses.brightness;
+}
+
+
 (async () => {
     try {
+        callbacks = loadCallbacks();
         setCallback(currentCallbackIndex);
 
         let i = 0;
@@ -117,7 +170,7 @@ async function promptChooseFunction() {
         matrix.afterSync((mat, dt, t) => {
 //            console.log(dt);
             pulsers.map(pulser => {
-                pulser.calc(t/1000);
+                pulser.calc(t/(1000 / speedMultiplier));
             });
 
             let minValue = Number.POSITIVE_INFINITY;
@@ -172,6 +225,7 @@ async function promptChooseFunction() {
                         { title: "Set how long to display function before going to next", value: "setInterval" },
                         { title: "Set speed multiplier", value: "setSpeed" },
                         { title: "Save current function", value: "save" },
+                        { title: "Display current function", value: "display" },
                         { title: "Favorite current function", value: "favorite" },
                         { title: "Save brightness and speed settings for current function", value: "saveSettings" },
                         { title: "Choose which sets of functions to play", value: "chooseFunctionSet" },
@@ -184,7 +238,6 @@ async function promptChooseFunction() {
             const action = response.action;
             if(action === "goToNext") {
                 const newIndex = (currentCallbackIndex + 1) % callbacks.length;
-                console.log(newIndex);
                 setCallback(newIndex);
                 autoplay = false;
             } else if(action === "chooseFunction") {
@@ -202,6 +255,28 @@ async function promptChooseFunction() {
                 await promptCustomFunction();
             } else if(action === "exit") {
                 process.exit();
+            } else if(action === "save") {
+                autoplay = false;
+                await saveCurrentFunction();
+            } else if(action === "adjustBrightness") {
+                await promptAdjustBrightness();
+            } else if(action === "setSpeed") {
+                speedMultiplier = (await prompts.prompt({
+                    type: 'number',
+                    name: 'speed',
+                    message: 'What should the speed multiplier be? (e.x. 2 for 2x speed)',
+                    float: true,
+                    validate: value => value > 0 || "Value must be greater than 0"
+                })).speed;
+            } else if(action === "setInterval") {
+                secondsPerDisplay = (await prompts.prompt({
+                    type: 'number',
+                    name: 'interval',
+                    message: 'How many seconds to play each function?',
+                    validate: value => value > 0 || "Value must be greater than 0"
+                })).interval;
+            } else if(action === "display") {
+                console.log("Now running "+ currentCallbackText + "\"");
             } else {
                 console.log(action + " not yet implemented");
             }
