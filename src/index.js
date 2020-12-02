@@ -1,7 +1,7 @@
 import { LedMatrix } from 'rpi-led-matrix';
 import { matrixOptions, runtimeOptions } from './_config.js';
 import { default as prompts } from 'prompts';
-import { default as callbacks } from "./internet_examples.json";
+import { default as callbacks } from "./functions.json";
 
 let currentCallback = null;
 let currentCallbackIndex = 0;
@@ -9,6 +9,8 @@ let brightnessPercent = 50;
 let secondsPerDisplay = 10;
 let autoplay = true;
 let brightnessFix = false;
+let matrix = null;
+let centerFunctions = true;
 
 class Pulser {
     constructor(x, y, i) {
@@ -20,14 +22,18 @@ class Pulser {
     }
     calc(t) {
         try {
-            this.value = Number(currentCallback(t, this.i, this.x - 8, this.y - 8));
+            const centeringAdjustmentX = centerFunctions ? matrix.width() / 4 : 0;
+            const centeringAdjustmentY = centerFunctions ? matrix.height() / 4 : 0;
+            this.value = Number(currentCallback(t, this.i, this.x - centeringAdjustmentX, this.y - centeringAdjustmentY));
         } catch {
             this.value = 0;
         }
     }
+
     calcNormalized(minValue, maxValue) {
         this.normalizedValue = (2 * ((this.value - minValue) / (maxValue - minValue))) - 1;
     }
+
     color() {
         if(this.value < 0) {
             return 0xFF0000;
@@ -35,6 +41,7 @@ class Pulser {
             return 0xFFFFFF;
         }
     }
+
     brightness() {
         return (Math.abs(brightnessFix ? this.normalizedValue : this.value) * brightnessPercent);
     }
@@ -44,7 +51,7 @@ function setCallback(callbackIndex) {
     let callback = callbacks[callbackIndex];
     const callbackName = callback["name"];
     const callbackText = callback["callback"];
-    console.log("Now running \"" + callbackName + "\". Callback is: \"" + callbackText + "\"");
+    //console.log("Now running \"" + callbackName + "\". Callback is: \"" + callbackText + "\"");
 
     setCustomCallback(callbackText, callbackIndex);
 }
@@ -77,12 +84,29 @@ async function promptCustomFunction() {
     let functionResponse = await prompts.prompt(functionPrompt);
 }
 
+async function promptChooseFunction() {
+    const choices = callbacks.map(cb => {
+        return {"title": cb.name, "value": cb.callback};
+    });
+
+    const choosePrompt = {
+        type: 'select',
+        name: 'functionChosen',
+        message: 'Choose a function',
+        choices: choices
+    };
+
+    let response = await prompts.prompt(choosePrompt);
+
+    setCustomCallback(response.functionChosen);
+}
+
 (async () => {
     try {
         setCallback(currentCallbackIndex);
 
         let i = 0;
-        const matrix = new LedMatrix(matrixOptions, runtimeOptions);
+        matrix = new LedMatrix(matrixOptions, runtimeOptions);
         const pulsers = [];
         for (let x = 0; x < matrix.width(); x++) {
             for (let y = 0; y < matrix.height(); y++) {
@@ -138,14 +162,15 @@ async function promptCustomFunction() {
                     name: 'action',
                     message: 'What would you like to do?',
                     choices: [
+                        { title: "Input your own function", value: "customFunction" },
                         { title: "Play next function", value: "goToNext" },
                         { title: "Choose a function to play", value: "chooseFunction" },
                         { title: "Play a random function", value: "goToRandom" },
                         { title: "Toggle autoplay", value: "toggleAutoplay" },
+                        { title: "Toggle centering functions", value: "toggleCenterFunctions" },
                         { title: "Adjust brightness", value: "adjustBrightness" },
-                        { title: "Set how long to display animation before going to next", value: "setInterval" },
+                        { title: "Set how long to display function before going to next", value: "setInterval" },
                         { title: "Set speed multiplier", value: "setSpeed" },
-                        { title: "Input your own function", value: "customFunction" },
                         { title: "Save current function", value: "save" },
                         { title: "Favorite current function", value: "favorite" },
                         { title: "Save brightness and speed settings for current function", value: "saveSettings" },
@@ -162,18 +187,23 @@ async function promptCustomFunction() {
                 console.log(newIndex);
                 setCallback(newIndex);
                 autoplay = false;
+            } else if(action === "chooseFunction") {
+                autoplay = false;
+                await promptChooseFunction();
             } else if(action === "goToRandom") {
                 setCallback(Math.floor(Math.random() * callbacks.length));
                 autoplay = false;
             } else if(action === "toggleAutoplay") {
                 autoplay = !autoplay;
+            } else if(action === "toggleCenterFunctions") {
+                centerFunctions = !centerFunctions;
             } else if(action === "customFunction") {
                 autoplay = false;
                 await promptCustomFunction();
             } else if(action === "exit") {
                 process.exit();
             } else {
-                console.log(response + " not yet implemented");
+                console.log(action + " not yet implemented");
             }
         }
 	 
