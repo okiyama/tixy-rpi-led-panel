@@ -1,13 +1,5 @@
 [
   {
-    "name": "wow my cool function",
-    "callback": "sqrt(sin(t)*cos(x)/tan(i))*t/40*sin(x)*y*y*t*i/400000000"
-  },
-  {
-    "name": "Julian Jocque first blinky thingie",
-    "callback": "sin(x)^(sin(i*t/y/500)+cos(y+x*x*x*x*y*i+i+t)*10*i*t*x*y/4000000000)"
-  },
-  {
     "name": "skip `Math.` to use methods \nand props like `sin` or `PI`",
     "callback": "sin(t-sqrt((x-7.5)**2+(y-6)**2))"
   },
@@ -26,6 +18,14 @@
   {
     "name": "animated smooth noise",
     "callback": "cos(t + i + x * y)"
+  },
+  {
+    "name": "standing wave",
+    "callback": "((y - 9) - 2*(cos(0.8*x + t) + cos(0.8*x - t))) ** (-2)"
+  },
+  {
+    "name": "Julian Jocque first blinky thingie",
+    "callback": "sin(x)^(sin(i*t/y/500)+cos(y+x*x*x*x*y*i+i+t)*10*i*t*x*y/4000000000)"
   },
   {
     "name": "waves",
