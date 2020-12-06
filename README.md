@@ -2,6 +2,12 @@
 
 Running the excellent tixy.land on an LED panel off a Raspberry Pi. Huge credit to Alex Eden for the wonderful rpi-led-matrix library that made this whole project a delight and a breeze to work on.
 
+# Setup
+
+You will need to setup your Raspberry Pi and LED Panel to work using hzeller's rpi-rgb-led-matrix library: https://github.com/hzeller/rpi-rgb-led-matrix
+
+Use a Raspberry Pi 4. I started out this project using a Pi 2 and it get less than 1 FPS. Upgraded to the Pi 4 and it gets 120+ FPS. The 3 might be okay, I'm not sure.
+
 
 # Installation  
 
@@ -30,12 +36,12 @@ then npm install in the directory
 Disable raspberry pi audio with sudo vim /boot/config.txt and add dtparam=audio=off to the bottom then reboot
 
 
-## Configuration
+# Configuration
 
 Modify src/_config.js to suit your needs. See https://github.com/alexeden/rpi-led-matrix#configuration for information on that config.
 
 
-## Running 
+# Running 
 
 All of these use sudo to run as root :D
 
