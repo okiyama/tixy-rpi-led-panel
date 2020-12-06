@@ -6,7 +6,7 @@ Running the excellent tixy.land on an LED panel off a Raspberry Pi. Huge credit 
 
 You will need to setup your Raspberry Pi and LED Panel to work using hzeller's rpi-rgb-led-matrix library: https://github.com/hzeller/rpi-rgb-led-matrix
 
-Use a Raspberry Pi 4. I started out this project using a Pi 2 and it get less than 1 FPS. Upgraded to the Pi 4 and it gets 120+ FPS. The 3 might be okay, I'm not sure.
+Use a Raspberry Pi 4. I started out this project using a Pi 2 and it got less than 1 FPS. Upgraded to the Pi 4 and it gets 120+ FPS. The 3 might be okay, I'm not sure.
 
 
 # Installation  
