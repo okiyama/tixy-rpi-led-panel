@@ -2,6 +2,10 @@
 
 Running the excellent tixy.land on an LED panel off a Raspberry Pi. Huge credit to Alex Eden for the wonderful rpi-led-matrix library that made this whole project a delight and a breeze to work on.
 
+![example](https://thumbs.gfycat.com/MemorableRegalAmphiuma-size_restricted.gif) 
+
+[Better quality gif](https://gfycat.com/memorableregalamphiuma)
+
 # Setup
 
 You will need to setup your Raspberry Pi and LED Panel to work using hzeller's rpi-rgb-led-matrix library: https://github.com/hzeller/rpi-rgb-led-matrix
